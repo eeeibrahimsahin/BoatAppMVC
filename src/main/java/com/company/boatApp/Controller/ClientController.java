@@ -9,13 +9,15 @@ import java.util.Map;
 public class ClientController {
 
 
-    public static Client createClient(String firstName, String lastName, int telephoneNumber, String address,
+    public static Client createClient(Model model, String firstName, String lastName, int telephoneNumber, String address,
                                       String emailAddress) {
         Client client = new Client();
-        return client.createClient(firstName,lastName,telephoneNumber,address,emailAddress);
+        client = client.createClient(firstName, lastName, telephoneNumber, address, emailAddress);
+        model.clientList.add(client);
+        return client;
     }
 
-    public static Client updateClient(Client client,Map<String,String> userInfo){
+    public static Client updateClient(Client client, Map<String, String> userInfo) {
         client.setFirstName(userInfo.get("Firstname"));
         client.setLastName(userInfo.get("Lastname"));
         client.setTelephoneNumber(Integer.parseInt(userInfo.get("TelephoneNumber")));
@@ -29,15 +31,18 @@ public class ClientController {
             ClientView.showClients(model);
         } else if (userSelection == 2) {
             ClientView.showClients(model);
-            int userSelecttion = ClientView.takeUserPreferenceForChoosingClient(model);
-            Client client = getClient(model, userSelecttion);
+            int userClientSelection = ClientView.takeUserPreferenceForChoosingClient(model);
+            Client client = getClient(model, userClientSelection);
             Map<String, String> clientInfo = ClientView.takeClientInformationFromUser();
-            updateClient(client,clientInfo);
-            System.out.println(model.clientList.get(0));
+            updateClient(client, clientInfo);
+        } else if (userSelection == 3) {
+            ClientView.showClients(model);
+            int userClientSelection = ClientView.takeUserPreferenceForChoosingClient(model);
+            model.clientList.removeIf(client -> client.getClientId()==userClientSelection);
         }
     }
 
-public static Client getClient(Model model,int clientId){
-    return model.clientList.stream().filter(client -> client.getClientId()==clientId).findFirst().get();
-}
+    public static Client getClient(Model model, int clientId) {
+        return model.clientList.stream().filter(client -> client.getClientId() == clientId).findFirst().get();
+    }
 }

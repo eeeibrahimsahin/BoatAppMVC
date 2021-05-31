@@ -19,6 +19,8 @@ public class OrderController {
             makeAReservation(model);
         } else if (userSelectionFromOrderMenu == 3) {
             updateAReservation(model);
+        } else if (userSelectionFromOrderMenu == 4) {
+            deleteOrder(model);
         }
 
     }
@@ -42,7 +44,7 @@ public class OrderController {
             OrderView.showAvailableBoats(availableBoatsAtASpecificDate);
             int boatId = OrderView.takeBoatPreferenceFromUser();
             order.setBoat(BoatController.getBoat(model.boatList, boatId).get());
-        } else if (userSelection == 4) deleteOrder(orderId, model);
+        }
     }
 
     private static void makeAReservation(Model model) throws ParseException {
@@ -56,12 +58,12 @@ public class OrderController {
         int userBoatPreference = OrderView.takeBoatPreferenceFromUser();
         Boat boat = BoatController.getBoat(model.boatList, userBoatPreference).get();
         Map<String, String> userInfo = ClientView.takeClientInformationFromUser();
-        Client client = ClientController.createClient(
+        Client client = ClientController.createClient(model,
                 userInfo.get("Firstname"),
                 userInfo.get("Lastname"),
                 Integer.parseInt(userInfo.get("TelephoneNumber")),
-                userInfo.get("EmailAddress"),
-                userInfo.get("Address"));
+                userInfo.get("Address"),
+                userInfo.get("EmailAddress"));
 
         boolean isConfirm = OrderView.takeReservationConfirmationFromUser(
                 list.get(0), boat.getType(), client.getFirstName(), client.getLastName(),
@@ -154,7 +156,9 @@ public class OrderController {
         order.setRentingDate(setDate(resDate));
     }
 
-    private static void deleteOrder(int orderId, Model model) {
+    private static void deleteOrder(Model model) {
+        getReservations(model);
+        int orderId = OrderView.takePreferencesFromUserToUpdateAReservation();
         model.orderList.removeIf(order -> order.getOrderId() == orderId);
     }
 

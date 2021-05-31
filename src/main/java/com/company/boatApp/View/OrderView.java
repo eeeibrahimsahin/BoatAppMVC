@@ -2,7 +2,6 @@ package com.company.boatApp.View;
 
 import com.company.boatApp.Model.Boat;
 import com.company.boatApp.Model.BoatType;
-import com.company.boatApp.Model.Client;
 import com.company.boatApp.Model.Order;
 
 import java.util.*;
@@ -19,7 +18,7 @@ public class OrderView {
                 "5- Go to main menu\n");
         int userSelection = Integer.parseInt(scanner.nextLine());
         while (true) {
-            if (userSelection >= 1 || userSelection <= 6)
+            if (userSelection >= 1 || userSelection <= 5)
                 return userSelection;
         }
     }
@@ -30,11 +29,10 @@ public class OrderView {
                 "1- Change date of the reservation\n" +
                 "2- Change client information of the reservation\n" +
                 "3- Change the boat\n" +
-                "4- Delete the reservation\n" +
-                "5- Back to Main Menu", orderId);
+                "4- Back to Main Menu", orderId);
         int userSelection = Integer.parseInt(scanner.nextLine());
         while (true) {
-            if (userSelection >= 1 || userSelection <= 5)
+            if (userSelection >= 1 || userSelection <= 4)
                 return userSelection;
         }
     }

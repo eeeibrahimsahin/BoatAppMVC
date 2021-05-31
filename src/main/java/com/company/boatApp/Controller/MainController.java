@@ -1,6 +1,5 @@
 package com.company.boatApp.Controller;
 
-import com.company.boatApp.Model.Client;
 import com.company.boatApp.Model.Model;
 import com.company.boatApp.View.ClientView;
 import com.company.boatApp.View.MainMenuView;
@@ -9,7 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.ref.Cleaner;
 import java.text.ParseException;
 
 public class MainController {
@@ -19,7 +17,8 @@ public class MainController {
             while (true) {
                 if (EmployeeController.login(model)) break;
             }
-          MAINMENU:  while (true) {
+            MAINMENU:
+            while (true) {
                 int userSelection = MainMenuView.mainMenu();
                 if (userSelection == 1) {
                     while (true) {
@@ -45,12 +44,14 @@ public class MainController {
                         OrderController.createAReport(userSelectionFromReportMenu, model);
                     }
                 } else if (userSelection == 6) {
-                    if(MainMenuView.getConfirmationFromUser())
+                    if (MainMenuView.getConfirmationFromUser())
                         mapper.writeValue(new File("boatAppData.json"), model);
                 } else if (userSelection == 7) {
+                    if (MainMenuView.getConfirmationFromUser())
+                        mapper.writeValue(new File("boatAppData.json"), model);
                     break MAINMENU;
                 } else if (userSelection == 8) {
-                    if(MainMenuView.getConfirmationFromUser())
+                    if (MainMenuView.getConfirmationFromUser())
                         mapper.writeValue(new File("boatAppData.json"), model);
                     System.out.println("Fijne Dagg...");
                     break MAIN;
