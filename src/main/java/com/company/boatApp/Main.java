@@ -11,11 +11,8 @@ import java.text.ParseException;
 public class Main {
 
     public static void main(String[] args) throws IOException, ParseException {
-	// write your code here
         ObjectMapper mapper = new ObjectMapper();
         Model model = mapper.readValue(new File("boatAppData.json"), Model.class);
-        MainController  mainController = new MainController();
-        mainController.start(model,mapper);
-        //mapper.writeValue(new File("boatAppData.json"), model);
+        MainController.start(model, mapper);
     }
 }

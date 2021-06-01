@@ -45,14 +45,18 @@ public class ClientView {
     }
 
     public static void showClients(Model model) {
-        System.out.println("ClientId\t\t"+
-                "Name\t\t\t" +
-                "Address\t\t" +
+        System.out.println("ClientId\t"+
+                "Name\t\t\t\t\t" +
+                "Address\t\t\t\t\t\t" +
                 "TelephoneNumber");
-        model.clientList.stream().forEach(client -> System.out.println(client.getClientId()+"\t\t\t" +
-                client.getFirstName() + " " +
-                client.getLastName() + "\t" +
-                client.getAddress() + "\t" +
+        model.clientList.stream().forEach(client -> System.out.format("%3.3s\t\t\t" +
+                "%-10.10s " +
+                "%-10.10s\t" +
+                "%-30.30s" +
+                "%-10.10s\n" ,client.getClientId(),
+                client.getFirstName(),
+                client.getLastName(),
+                client.getAddress(),
                 client.getTelephoneNumber()));
     }
 

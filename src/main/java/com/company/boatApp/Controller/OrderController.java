@@ -12,11 +12,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class OrderController {
-    public static void execute(int userSelectionFromOrderMenu, Model model) throws ParseException {
+    public static void execute(int userSelectionFromOrderMenu, Employee employee, Model model) throws ParseException {
         if (userSelectionFromOrderMenu == 1) {
             getReservations(model);
         } else if (userSelectionFromOrderMenu == 2) {
-            makeAReservation(model);
+            makeAReservation(employee, model);
         } else if (userSelectionFromOrderMenu == 3) {
             updateAReservation(model);
         } else if (userSelectionFromOrderMenu == 4) {
@@ -47,7 +47,7 @@ public class OrderController {
         }
     }
 
-    private static void makeAReservation(Model model) throws ParseException {
+    private static void makeAReservation(Employee employee, Model model) throws ParseException {
 
         List<String> list = OrderView.takePreferencesFromUserAboutTour();
         //List<Boat> availableBoatsAtASpecificDate = getAvailableBoatsAtASpecificDate(list.get(0), model);
@@ -69,7 +69,7 @@ public class OrderController {
                 list.get(0), boat.getType(), client.getFirstName(), client.getLastName(),
                 boat.getMinimumPricePerHour() * desiredTourDuration);
         if (isConfirm) {
-            reservationConfirmation(model, boat, client, model.employeeList.get(0), list.get(0), Integer.parseInt(list.get(1)));
+            reservationConfirmation(model, boat, client, employee, list.get(0), Integer.parseInt(list.get(1)));
         }
 
     }
@@ -81,7 +81,8 @@ public class OrderController {
                         order.getBoat().getBoatId(),
                         order.getBoat().getType(),
                         order.getRentingDate(),
-                        order.getClient().getFirstName()));
+                        order.getClient().getFirstName(),
+                        order.getEmployee().getFirstName()));
     }
 
     public static Order getAReservation(Model model, int orderId) {
@@ -91,7 +92,7 @@ public class OrderController {
 
     /**
      * Deprecated method
-     *
+     * This method is deprecated. Please use the new version of it which is getAvailableBoat.
      * @param date
      * @param model
      * @return

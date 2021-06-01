@@ -1,7 +1,9 @@
 package com.company.boatApp.Controller;
 
+import com.company.boatApp.Model.Employee;
 import com.company.boatApp.Model.Model;
 import com.company.boatApp.View.ClientView;
+import com.company.boatApp.View.EmployeeView;
 import com.company.boatApp.View.MainMenuView;
 import com.company.boatApp.View.OrderView;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,20 +13,22 @@ import java.io.IOException;
 import java.text.ParseException;
 
 public class MainController {
-    public void start(Model model, ObjectMapper mapper) throws ParseException, IOException {
+    public static void start(Model model, ObjectMapper mapper) throws ParseException, IOException {
+        Employee employee = new Employee();
         MAIN:
         while (true) {
             while (true) {
-                if (EmployeeController.login(model)) break;
+                if ((employee = EmployeeController.login(model)) != null) break;
             }
             MAINMENU:
             while (true) {
+                System.out.println("Employer: " + employee.getFirstName() + " " + employee.getLastName());
                 int userSelection = MainMenuView.mainMenu();
                 if (userSelection == 1) {
                     while (true) {
                         int userSelectionFromOrderMenu = OrderView.orderMenu();
                         if (userSelectionFromOrderMenu == 5) break;
-                        OrderController.execute(userSelectionFromOrderMenu, model);
+                        OrderController.execute(userSelectionFromOrderMenu, employee, model);
                     }
                 } else if (userSelection == 2) {
                     while (true) {
@@ -36,7 +40,11 @@ public class MainController {
                 } else if (userSelection == 3) {
 
                 } else if (userSelection == 4) {
-
+                    while (true) {
+                        int userSelectionFromEmployeeMenu = EmployeeView.employeeMenu();
+                        if (userSelectionFromEmployeeMenu == 5) break;
+                        EmployeeController.execute(userSelectionFromEmployeeMenu, model);
+                    }
                 } else if (userSelection == 5) {
                     while (true) {
                         int userSelectionFromReportMenu = OrderView.reportMenu();

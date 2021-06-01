@@ -54,7 +54,7 @@ public class OrderView {
 
     public static String takeDatePreferenceFromUserToCreateReport(String reportName) {
         System.out.println("Date format should be that yyyy-MM-dd");
-        System.out.format("Enter the desired report date to create %s report: ",reportName);
+        System.out.format("Enter the desired report date to create %s report: ", reportName);
         return new Scanner(System.in).nextLine();
     }
 
@@ -68,18 +68,20 @@ public class OrderView {
     public static void showReservationsLabel() {
         System.out.println("OrderId\t" +
                 "BoatId\t" +
-                "BoatType\t" +
-                "Tour Date\t\t\t\t\t\t" +
-                "Client Name");
+                "BoatType\t\t\t" +
+                "Tour Date\t\t\t\t\t" +
+                "Client\t\t" +
+                "Employee\t");
     }
 
-    public static void showReservations(int orderId, int boatId, BoatType boatType, Date tourDate, String clientName) {
-
-        System.out.println(orderId + "\t\t" +
-                boatId + "\t\t" +
-                boatType + "\t\t" +
-                tourDate + "\t\t" +
-                clientName);
+    public static void showReservations(int orderId, int boatId, BoatType boatType, Date tourDate, String clientName
+            , String employee) {
+        System.out.format("%3.3s\t\t" +
+                "%3.3s\t\t" +
+                "%-10.10s\t" +
+                "%-30.30s\t\t" +
+                "%-10.10s\t" +
+                "%-10.10s\n",orderId,boatId,boatType,tourDate,clientName,employee);
     }
 
     public static List<String> takePreferencesFromUserAboutTour() {
@@ -142,8 +144,12 @@ public class OrderView {
                 "Boat Type\t\t" +
                 "Duration\t\t" +
                 "Price (Euro)");
-        orderList.stream().forEach(order -> System.out.println(order.getOrderId() + "\t\t\t" +
-                order.getBoat().getType() + "\t\t\t" + order.getRentingDuration() + " hour\t\t\t" +
+        orderList.stream().forEach(order -> System.out.format("%3.3s\t\t\t" +
+                "%-10.10s\t\t" +
+                "%-2.2shour\t\t\t" +
+                "%-5.5s\n",order.getOrderId(),
+                order.getBoat().getType(),
+                order.getRentingDuration(),
                 order.getTotalPrice()));
         System.out.println("--------------------------------------------------------------");
         System.out.format("Total Price: %.2f Euro\n", totalPrice);

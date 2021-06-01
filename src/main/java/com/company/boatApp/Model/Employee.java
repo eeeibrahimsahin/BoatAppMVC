@@ -1,5 +1,6 @@
 package com.company.boatApp.Model;
 
+import java.util.Date;
 import java.util.Random;
 
 public class Employee {
@@ -11,6 +12,7 @@ public class Employee {
     private String emailAddress;
     private String userName;
     private String password;
+    private Date startingDate;
 
     public Employee() {
     }
@@ -21,6 +23,7 @@ public class Employee {
         this.lastName = lastName;
         this.telephoneNumber = telephoneNumber;
         this.emailAddress = emailAddress;
+        this.startingDate = new Date(System.currentTimeMillis());
     }
 
     public Employee(String firstName, String lastName, String telephoneNumber, String emailAddress, String userName, String password) {
@@ -31,6 +34,7 @@ public class Employee {
         this.emailAddress = emailAddress;
         this.userName = userName;
         this.password = password;
+        this.startingDate = new Date(System.currentTimeMillis());
     }
 
     public int getEmployeeId() {
@@ -83,6 +87,14 @@ public class Employee {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getStartingDate() {
+        return startingDate;
+    }
+
+    public void setStartingDate(Date startingDate) {
+        this.startingDate = startingDate;
     }
 
     @Override
