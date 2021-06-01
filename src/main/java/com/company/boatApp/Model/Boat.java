@@ -10,7 +10,9 @@ public class Boat {
     private int seats;
     private int chargingTime;
     private double minimumPricePerHour;
-
+    private double remainingCharge;
+    private BoatStatus status;
+    private double chargeLife;
     public Boat() {
     }
 
@@ -19,6 +21,8 @@ public class Boat {
         this.type = type;
         this.seats = seats;
         this.minimumPricePerHour = minimumPricePerHour;
+        this.status = BoatStatus.AVAILABLE;
+        if(this.getType()==BoatType.ELECTRICALBOAT) this.chargeLife =120;
     }
 
     public Boat(int boatId, BoatType type, int seats, int chargingTime, double minimumPricePerHour) {
@@ -27,6 +31,19 @@ public class Boat {
         this.seats = seats;
         this.chargingTime = chargingTime;
         this.minimumPricePerHour = minimumPricePerHour;
+        this.status = BoatStatus.AVAILABLE;
+        if(this.getType()==BoatType.ELECTRICALBOAT) this.chargeLife =120;
+    }
+
+    public Boat(int boatId, BoatType type, int seats, int chargingTime, double minimumPricePerHour, double remainingCharge) {
+        this.boatId = boatId;
+        this.type = type;
+        this.seats = seats;
+        this.chargingTime = chargingTime;
+        this.minimumPricePerHour = minimumPricePerHour;
+        this.remainingCharge = remainingCharge;
+        this.status = BoatStatus.AVAILABLE;
+        if(this.getType()==BoatType.ELECTRICALBOAT) this.chargeLife =120;
     }
 
     public BoatType getType() {
@@ -63,6 +80,32 @@ public class Boat {
 
     public void setMinimumPricePerHour(double minimumPricePerHour) {
         this.minimumPricePerHour = minimumPricePerHour;
+    }
+
+    public double getRemainingCharge() {
+        return remainingCharge;
+    }
+
+    public void setRemainingCharge(double remainingCharge) {
+        this.remainingCharge = remainingCharge;
+    }
+
+    public BoatStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BoatStatus status) {
+        this.status = status;
+    }
+
+    public double getChargeLife() {
+        return chargeLife;
+    }
+
+    public void setChargeLife(double chargeLife) {
+        if (this.getType()==BoatType.ELECTRICALBOAT){
+            this.chargeLife = chargeLife;
+        }
     }
 
     @Override

@@ -20,7 +20,6 @@ public class EmployeeController {
         } else if (userSelectionFromEmployeeMenu == 4) {
             deleteEmployee(model);
         }
-
     }
 
     private static void deleteEmployee(Model model) {
@@ -80,9 +79,9 @@ public class EmployeeController {
 
     public static Employee login(Model model) {
         List<String> userLoginInfo = EmployeeView.takeLoginInfoFromUser();
-        if(authentication(userLoginInfo.get(0), userLoginInfo.get(1), model.employeeList))
-            return  model.employeeList.stream().filter(employee -> employee.getUserName().equals(userLoginInfo.get(0))
-                && employee.getPassword().equals(userLoginInfo.get(1))).findFirst().get();
+        if (authentication(userLoginInfo.get(0), userLoginInfo.get(1), model.employeeList))
+            return model.employeeList.stream().filter(employee -> employee.getUserName().equals(userLoginInfo.get(0))
+                    && employee.getPassword().equals(userLoginInfo.get(1))).findFirst().get();
         return null;
     }
 

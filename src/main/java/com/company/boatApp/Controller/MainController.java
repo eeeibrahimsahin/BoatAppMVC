@@ -2,10 +2,7 @@ package com.company.boatApp.Controller;
 
 import com.company.boatApp.Model.Employee;
 import com.company.boatApp.Model.Model;
-import com.company.boatApp.View.ClientView;
-import com.company.boatApp.View.EmployeeView;
-import com.company.boatApp.View.MainMenuView;
-import com.company.boatApp.View.OrderView;
+import com.company.boatApp.View.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -38,7 +35,11 @@ public class MainController {
                     }
 
                 } else if (userSelection == 3) {
-
+                    while (true) {
+                        int userSelectionFromBoatMenu = BoatView.boatMenu();
+                        if (userSelectionFromBoatMenu == 5) break;
+                        BoatController.execute(userSelectionFromBoatMenu, model);
+                    }
                 } else if (userSelection == 4) {
                     while (true) {
                         int userSelectionFromEmployeeMenu = EmployeeView.employeeMenu();
