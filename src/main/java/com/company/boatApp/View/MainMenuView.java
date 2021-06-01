@@ -23,7 +23,7 @@ public class MainMenuView {
     }
 
     public static boolean getConfirmationFromUser() {
-        System.out.println("Do you want to save all these changes? if your answer is yes then press S\n" +
+        System.out.println("Do you want to save all these changes? if your answer is yes then press Y\n" +
                 "to cancel press C");
         while (true) {
             String userSelection = new Scanner(System.in).nextLine();

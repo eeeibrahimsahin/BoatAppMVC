@@ -14,12 +14,13 @@ public class OrderView {
                 "Choose an option from the following list\n" +
                 "1- See all reservations\n" +
                 "2- Make reservation\n" +
-                "3- Change reservation\n" +
+                "3- Update reservation\n" +
                 "4- Delete reservation\n" +
-                "5- Go to main menu\n");
+                "5- Calculate last price\n" +
+                "6- Go to main menu\n");
         int userSelection = Integer.parseInt(scanner.nextLine());
         while (true) {
-            if (userSelection >= 1 || userSelection <= 5)
+            if (userSelection >= 1 || userSelection <= 6)
                 return userSelection;
         }
     }
@@ -46,10 +47,11 @@ public class OrderView {
                 "2- Weekly Report\n" +
                 "3- Monthly Report\n" +
                 "4- Yearly Report\n" +
-                "5- Back to Main Menu");
+                "5- Boats Report\n" +
+                "6- Back to Main Menu");
         int userSelection = Integer.parseInt(scanner.nextLine());
         while (true) {
-            if (userSelection >= 1 || userSelection <= 5)
+            if (userSelection >= 1 || userSelection <= 6)
                 return userSelection;
         }
     }
@@ -142,13 +144,20 @@ public class OrderView {
         return orderId;
     }
 
-    public static void showReport(List<Order> orderList) {
-        double totalPrice = orderList.stream().map(order -> order.getTotalPrice()).reduce(0.0, Double::sum);
+    public static void showReport(Map<String,List<Order>> orderMap) {
+        double totalPrice = orderMap.get("All_Order_List")
+                .stream().map(order -> order.getTotalPrice()).reduce(0.0, Double::sum);
+        double earnedTotalMoney = orderMap.get("Completed_Order_List")
+                .stream().map(order -> order.getTotalPrice()).reduce(0.0, Double::sum);
+        double estimatedTotalMoney = orderMap.get("Estimated_Order_List")
+                .stream().map(order -> order.getTotalPrice()).reduce(0.0, Double::sum);
+        double lostTotalMoney = orderMap.get("Canceled_Order_List")
+                .stream().map(order -> order.getTotalPrice()).reduce(0.0, Double::sum);
         System.out.println("OrderID\t\t" +
                 "Boat Type\t\t" +
                 "Duration\t\t" +
                 "Price (Euro)");
-        orderList.stream().forEach(order -> System.out.format("%3.3s\t\t\t" +
+        orderMap.get("All_Order_List").stream().forEach(order -> System.out.format("%3.3s\t\t\t" +
                         "%-10.10s\t\t" +
                         "%-2.2shour\t\t\t" +
                         "%-5.5s\n", order.getOrderId(),
@@ -157,7 +166,13 @@ public class OrderView {
                 order.getTotalPrice()));
         System.out.println("--------------------------------------------------------------");
         System.out.format("Total Price: %.2f Euro\n", totalPrice);
-        System.out.println("---------------------------------------------------------------");
+        System.out.format("Total Earned Price: %.2f Euro\n", earnedTotalMoney);
+        System.out.format("Total Estimated Price: %.2f Euro\n", estimatedTotalMoney);
+        System.out.format("Total Lost Price: %.2f Euro\n", lostTotalMoney);
+    }
+
+    public static void showBoatsReport(List<Boat> boatList){
+
     }
 
     public static int takeStatusTypePreferenceFromUser() {
@@ -172,5 +187,47 @@ public class OrderView {
             if (userSelection >= 1 || userSelection <= 4)
                 return userSelection;
         }
+    }
+
+    public static double getTotalPrice(Order order, double punishmentPrice) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("How many minutes late: ");
+        int punishmentMinutes = Integer.parseInt(sc.nextLine());
+        double TotalPunishmentPrice = 0;
+        double totalPrice = 0;
+        int hour;
+        if (punishmentMinutes % 15 == 0) {
+            int i = (punishmentMinutes) / 15;
+            hour = i;
+            TotalPunishmentPrice = hour * punishmentPrice;
+        } else {
+            int i = (punishmentMinutes) / 15;
+            hour = i + 1;
+            TotalPunishmentPrice = hour * punishmentPrice;
+        }
+        totalPrice = order.getTotalPrice() + TotalPunishmentPrice;
+        return totalPrice;
+    }
+
+    public double setRentingDuration(double rentingDuration, double punishmentMinutes) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Trip type: ");
+        String TripType = sc.nextLine();
+        System.out.println("Duration: ");
+        rentingDuration = sc.nextInt();
+        System.out.println("customer wants " + rentingDuration + "hour");
+        rentingDuration *= 60.0;//converting the time from hour to minutes
+        if (punishmentMinutes != 0) {
+            rentingDuration += punishmentMinutes;
+        }
+        if (TripType.equals("river")) {
+            rentingDuration -= 30.0;
+            rentingDuration /= 60.0;
+            System.out.println(rentingDuration + " hour will be calculated");
+        } else {
+            rentingDuration /= 60;
+            System.out.println(rentingDuration + " hour will be calculated");
+        }
+        return rentingDuration;
     }
 }

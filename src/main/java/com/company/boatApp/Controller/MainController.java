@@ -27,7 +27,7 @@ public class MainController {
                 if (userSelection == 1) {
                     while (true) {
                         int userSelectionFromOrderMenu = OrderView.orderMenu();
-                        if (userSelectionFromOrderMenu == 5) break;
+                        if (userSelectionFromOrderMenu == 6) break;
                         OrderController.execute(userSelectionFromOrderMenu, employee, model);
                     }
                 } else if (userSelection == 2) {
@@ -48,7 +48,7 @@ public class MainController {
                 } else if (userSelection == 5) {
                     while (true) {
                         int userSelectionFromReportMenu = OrderView.reportMenu();
-                        if (userSelectionFromReportMenu == 5) break;
+                        if (userSelectionFromReportMenu == 6) break;
                         OrderController.createAReport(userSelectionFromReportMenu, model);
                     }
                 } else if (userSelection == 6) {

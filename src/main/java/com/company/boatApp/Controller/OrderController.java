@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class OrderController {
     public static void execute(int userSelectionFromOrderMenu, Employee employee, Model model) throws ParseException {
@@ -21,6 +22,12 @@ public class OrderController {
             updateAReservation(model);
         } else if (userSelectionFromOrderMenu == 4) {
             deleteOrder(model);
+        } else if (userSelectionFromOrderMenu == 5) {
+            getReservations(model);
+            int userSelection = OrderView.takePreferencesFromUserToUpdateAReservation();
+            Order order = getAReservation(model, userSelection);
+            double totalPrice = OrderView.getTotalPrice(order, 5);
+            System.out.println("totalPrice = " + totalPrice);
         }
 
     }
@@ -171,20 +178,24 @@ public class OrderController {
     public static void createAReport(int userSelection, Model model) throws ParseException {
         if (userSelection == 1) {
             String reportDate = OrderView.takeDatePreferenceFromUserToCreateReport("daily");
-            List<Order> orderList = getReport(model, "daily", reportDate);
-            OrderView.showReport(orderList);
+            Map<String, List<Order>> orderMap = getReport(model, "daily", reportDate);
+            OrderView.showReport(orderMap);
         } else if (userSelection == 2) {
             String reportDate = OrderView.takeDatePreferenceFromUserToCreateReport("weekly");
-            List<Order> orderList = getReport(model, "weekly", reportDate);
-            OrderView.showReport(orderList);
+            Map<String, List<Order>> orderMap = getReport(model, "weekly", reportDate);
+            OrderView.showReport(orderMap);
         } else if (userSelection == 3) {
             String reportDate = OrderView.takeDatePreferenceFromUserToCreateReport("monthly");
-            List<Order> orderList = getReport(model, "monthly", reportDate);
-            OrderView.showReport(orderList);
+            Map<String, List<Order>> orderMap = getReport(model, "monthly", reportDate);
+            OrderView.showReport(orderMap);
         } else if (userSelection == 4) {
             String reportDate = OrderView.takeDatePreferenceFromUserToCreateReport("yearly");
-            List<Order> orderList = getReport(model, "yearly", reportDate);
-            OrderView.showReport(orderList);
+            Map<String, List<Order>> orderMap = getReport(model, "yearly", reportDate);
+            OrderView.showReport(orderMap);
+        } else if (userSelection == 5) {
+            Map<BoatType, Long> boatMap = model.boatList.stream()
+                    .collect(Collectors.groupingBy(e -> e.getType(), Collectors.counting()));
+            System.out.println("numberOfKajak = " + boatMap);
         }
     }
 
@@ -201,7 +212,8 @@ public class OrderController {
         order.setTourStatus(tourStatus);
     }
 
-    private static List<Order> getReport(Model model, String reportLong, String startDate) throws ParseException {
+    private static Map<String, List<Order>> getReport(Model model, String reportLong, String startDate)
+            throws ParseException {
         int lengthReport = 0;
         switch (reportLong) {
             case "daily":
@@ -219,11 +231,26 @@ public class OrderController {
         }
         LocalDate startingDate = LocalDate.parse(startDate);
         LocalDate endTime = startingDate.plusDays(lengthReport);
-        List<Order> orderList = model.orderList.stream()
-                .filter(order -> order.getRentingDate().after(Date.from(startingDate.atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                        && order.getRentingDate().before(Date.from(endTime.atStartOfDay(ZoneId.systemDefault()).toInstant())))
+        List<Order> allOrderList = model.orderList.stream()
+                .filter(order ->
+                        order.getRentingDate()
+                                .after(Date.from(startingDate.atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                                && order.getRentingDate()
+                                .before(Date.from(endTime.atStartOfDay(ZoneId.systemDefault()).toInstant())))
                 .collect(Collectors.toList());
-        return orderList;
+        List<Order> completedOrderList = allOrderList.stream()
+                .filter(order -> order.getTourStatus() == TourStatus.COMPLETED).collect(Collectors.toList());
+        List<Order> estimatedOrderList = allOrderList.stream()
+                .filter(order -> order.getTourStatus() == TourStatus.WAITING).collect(Collectors.toList());
+        List<Order> canceledOrderList = allOrderList.stream()
+                .filter(order -> order.getTourStatus() == TourStatus.CANCELED).collect(Collectors.toList());
+
+        Map<String, List<Order>> orderMap = new HashMap<>();
+        orderMap.put("All_Order_List", allOrderList);
+        orderMap.put("Completed_Order_List", completedOrderList);
+        orderMap.put("Estimated_Order_List", estimatedOrderList);
+        orderMap.put("Canceled_Order_List", canceledOrderList);
+        return orderMap;
     }
 
     private static Date setDate(String reservationDate) throws ParseException {
