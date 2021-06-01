@@ -1,1 +1,620 @@
-{"boatList":[{"boatId":100,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":101,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":102,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":103,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":104,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":105,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":106,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":107,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":108,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":109,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":110,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},{"boatId":200,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":201,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":202,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":203,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":204,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":205,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":206,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":207,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":208,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":209,"type":"ROWINGBOAT","seats":4,"chargingTime":0,"minimumPricePerHour":27.5},{"boatId":300,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":301,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":302,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":303,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":304,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":305,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":306,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":307,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":308,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":309,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":310,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":311,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":312,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":313,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":314,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":315,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":316,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":317,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":318,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":319,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},{"boatId":400,"type":"ELECTRICALBOAT","seats":4,"chargingTime":30,"minimumPricePerHour":35.0},{"boatId":401,"type":"ELECTRICALBOAT","seats":4,"chargingTime":30,"minimumPricePerHour":35.0},{"boatId":402,"type":"ELECTRICALBOAT","seats":4,"chargingTime":30,"minimumPricePerHour":35.0},{"boatId":403,"type":"ELECTRICALBOAT","seats":4,"chargingTime":30,"minimumPricePerHour":35.0},{"boatId":404,"type":"ELECTRICALBOAT","seats":4,"chargingTime":30,"minimumPricePerHour":35.0}],"employeeList":[{"employeeId":595,"firstName":"Ibrahim","lastName":"Sahin","telephoneNumber":"09876543","emailAddress":"ibrahim@gmail.com","userName":"ibrahim","password":"12345","startingDate":1622493007980},{"employeeId":645,"firstName":"Aysegul","lastName":"Aydar","telephoneNumber":"09876543","emailAddress":"Amsterdam","userName":"aysegul","password":"12345","startingDate":1622493486773},{"employeeId":385,"firstName":"Ehsan","lastName":"Muradi","telephoneNumber":"098765432","emailAddress":"ehsan@gmail.com","userName":"ehsan","password":"12345","startingDate":1622493509108}],"clientList":[{"clientId":442,"firstName":"Alex","lastName":"De Souza","telephoneNumber":9876543,"address":"alex@gmail.com","emailAddress":"Brasil","creditCard":null},{"clientId":323,"firstName":"Dirk","lastName":"Kuyt","telephoneNumber":9876543,"address":"kuyt@gmail.com","emailAddress":"Amsterdam'","creditCard":null},{"clientId":899,"firstName":"Leonel","lastName":"Messi","telephoneNumber":9876543,"address":"Spain","emailAddress":"messi@gmail.com","creditCard":null},{"clientId":494,"firstName":"Cristhiano","lastName":"Ronaldo","telephoneNumber":98765432,"address":"Italy","emailAddress":"ronaldo@gmail.com","creditCard":null},{"clientId":244,"firstName":"Susan","lastName":"Suzi","telephoneNumber":21345,"address":"Utrecht","emailAddress":"suzi@gmail.com","creditCard":null}],"orderList":[{"orderId":81,"boat":{"boatId":100,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},"client":{"clientId":442,"firstName":"Alex","lastName":"De Souza","telephoneNumber":9876543,"address":"alex@gmail.com","emailAddress":"Brasil","creditCard":null},"employee":{"employeeId":150,"firstName":"Ibrahim","lastName":"Sahin","telephoneNumber":"123456789","emailAddress":"ibrahim@gmail.com","userName":"ibrahim","password":"12345","startingDate":null},"rentingDate":1622887200000,"rentingDuration":1,"bookingDate":1622443420726,"totalPrice":23.0},{"orderId":4,"boat":{"boatId":101,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},"client":{"clientId":323,"firstName":"Dirk","lastName":"Kuyt","telephoneNumber":9876543,"address":"kuyt@gmail.com","emailAddress":"Amsterdam'","creditCard":null},"employee":{"employeeId":150,"firstName":"Ibrahim","lastName":"Sahin","telephoneNumber":"123456789","emailAddress":"ibrahim@gmail.com","userName":"ibrahim","password":"12345","startingDate":null},"rentingDate":1622889000000,"rentingDuration":1,"bookingDate":1622443511178,"totalPrice":23.0},{"orderId":154,"boat":{"boatId":102,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},"client":{"clientId":899,"firstName":"Leonel","lastName":"Messi","telephoneNumber":9876543,"address":"Spain","emailAddress":"messi@gmail.com","creditCard":null},"employee":{"employeeId":150,"firstName":"Ibrahim","lastName":"Sahin","telephoneNumber":"123456789","emailAddress":"ibrahim@gmail.com","userName":"ibrahim","password":"12345","startingDate":null},"rentingDate":1622889900000,"rentingDuration":1,"bookingDate":1622443769784,"totalPrice":23.0},{"orderId":147,"boat":{"boatId":110,"type":"KAJAK","seats":2,"chargingTime":0,"minimumPricePerHour":23.0},"client":{"clientId":494,"firstName":"Cristhiano","lastName":"Ronaldo","telephoneNumber":98765432,"address":"Italy","emailAddress":"ronaldo@gmail.com","creditCard":null},"employee":{"employeeId":385,"firstName":"Ehsan","lastName":"Muradi","telephoneNumber":"098765432","emailAddress":"ehsan@gmail.com","userName":"ehsan","password":"12345","startingDate":1622493509108},"rentingDate":1623682800000,"rentingDuration":1,"bookingDate":1622494897270,"totalPrice":23.0},{"orderId":73,"boat":{"boatId":300,"type":"SUPBOARD","seats":1,"chargingTime":0,"minimumPricePerHour":17.5},"client":{"clientId":244,"firstName":"Susan","lastName":"Suzi","telephoneNumber":21345,"address":"Utrecht","emailAddress":"suzi@gmail.com","creditCard":null},"employee":{"employeeId":645,"firstName":"Aysegul","lastName":"Aydar","telephoneNumber":"09876543","emailAddress":"Amsterdam","userName":"aysegul","password":"12345","startingDate":1622493486773},"rentingDate":1623225600000,"rentingDuration":1,"bookingDate":1622496701819,"totalPrice":17.5}]}
+{
+  "boatList": [
+    {
+      "boatId": 100,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 101,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 102,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 103,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 104,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 105,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 106,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 107,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 108,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 109,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 110,
+      "type": "KAJAK",
+      "seats": 2,
+      "chargingTime": 0,
+      "minimumPricePerHour": 23.0
+    },
+    {
+      "boatId": 200,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 201,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 202,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 203,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 204,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 205,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 206,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 207,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 208,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 209,
+      "type": "ROWINGBOAT",
+      "seats": 4,
+      "chargingTime": 0,
+      "minimumPricePerHour": 27.5
+    },
+    {
+      "boatId": 300,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 301,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 302,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 303,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 304,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 305,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 306,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 307,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 308,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 309,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 310,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 311,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 312,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 313,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 314,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 315,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 316,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 317,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 318,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 319,
+      "type": "SUPBOARD",
+      "seats": 1,
+      "chargingTime": 0,
+      "minimumPricePerHour": 17.5
+    },
+    {
+      "boatId": 400,
+      "type": "ELECTRICALBOAT",
+      "seats": 4,
+      "chargingTime": 30,
+      "minimumPricePerHour": 35.0
+    },
+    {
+      "boatId": 401,
+      "type": "ELECTRICALBOAT",
+      "seats": 4,
+      "chargingTime": 30,
+      "minimumPricePerHour": 35.0
+    },
+    {
+      "boatId": 402,
+      "type": "ELECTRICALBOAT",
+      "seats": 4,
+      "chargingTime": 30,
+      "minimumPricePerHour": 35.0
+    },
+    {
+      "boatId": 403,
+      "type": "ELECTRICALBOAT",
+      "seats": 4,
+      "chargingTime": 30,
+      "minimumPricePerHour": 35.0
+    },
+    {
+      "boatId": 404,
+      "type": "ELECTRICALBOAT",
+      "seats": 4,
+      "chargingTime": 30,
+      "minimumPricePerHour": 35.0
+    }
+  ],
+  "employeeList": [
+    {
+      "employeeId": 595,
+      "firstName": "Ibrahim",
+      "lastName": "Sahin",
+      "telephoneNumber": "09876543",
+      "emailAddress": "ibrahim@gmail.com",
+      "userName": "ibrahim",
+      "password": "12345",
+      "startingDate": 1622493007980
+    },
+    {
+      "employeeId": 645,
+      "firstName": "Aysegul",
+      "lastName": "Aydar",
+      "telephoneNumber": "09876543",
+      "emailAddress": "Amsterdam",
+      "userName": "aysegul",
+      "password": "12345",
+      "startingDate": 1622493486773
+    },
+    {
+      "employeeId": 385,
+      "firstName": "Ehsan",
+      "lastName": "Muradi",
+      "telephoneNumber": "098765432",
+      "emailAddress": "ehsan@gmail.com",
+      "userName": "ehsan",
+      "password": "12345",
+      "startingDate": 1622493509108
+    }
+  ],
+  "clientList": [
+    {
+      "clientId": 442,
+      "firstName": "Alex",
+      "lastName": "De Souza",
+      "telephoneNumber": 9876543,
+      "address": "alex@gmail.com",
+      "emailAddress": "Brasil",
+      "creditCard": null
+    },
+    {
+      "clientId": 323,
+      "firstName": "Dirk",
+      "lastName": "Kuyt",
+      "telephoneNumber": 9876543,
+      "address": "kuyt@gmail.com",
+      "emailAddress": "Amsterdam'",
+      "creditCard": null
+    },
+    {
+      "clientId": 899,
+      "firstName": "Leonel",
+      "lastName": "Messi",
+      "telephoneNumber": 9876543,
+      "address": "Spain",
+      "emailAddress": "messi@gmail.com",
+      "creditCard": null
+    },
+    {
+      "clientId": 494,
+      "firstName": "Cristhiano",
+      "lastName": "Ronaldo",
+      "telephoneNumber": 98765432,
+      "address": "Italy",
+      "emailAddress": "ronaldo@gmail.com",
+      "creditCard": null
+    },
+    {
+      "clientId": 244,
+      "firstName": "Susan",
+      "lastName": "Suzi",
+      "telephoneNumber": 21345,
+      "address": "Utrecht",
+      "emailAddress": "suzi@gmail.com",
+      "creditCard": null
+    },
+    {
+      "clientId": 682,
+      "firstName": "Salah",
+      "lastName": "Mohammed",
+      "telephoneNumber": 987654,
+      "address": "London",
+      "emailAddress": "salah@gmail.com",
+      "creditCard": null
+    }
+  ],
+  "orderList": [
+    {
+      "orderId": 69,
+      "boat": {
+        "boatId": 400,
+        "type": "ELECTRICALBOAT",
+        "seats": 4,
+        "chargingTime": 30,
+        "minimumPricePerHour": 35.0
+      },
+      "client": {
+        "clientId": 682,
+        "firstName": "Salah",
+        "lastName": "Mohammed",
+        "telephoneNumber": 987654,
+        "address": "London",
+        "emailAddress": "salah@gmail.com",
+        "creditCard": null
+      },
+      "employee": {
+        "employeeId": 595,
+        "firstName": "Ibrahim",
+        "lastName": "Sahin",
+        "telephoneNumber": "09876543",
+        "emailAddress": "ibrahim@gmail.com",
+        "userName": "ibrahim",
+        "password": "12345",
+        "startingDate": 1622493007980
+      },
+      "rentingDate": 1621936800000,
+      "rentingDuration": 2,
+      "bookingDate": 1622549838404,
+      "totalPrice": 140.0,
+      "tourStatus": "COMPLETED"
+    },
+    {
+      "orderId": 81,
+      "boat": {
+        "boatId": 100,
+        "type": "KAJAK",
+        "seats": 2,
+        "chargingTime": 0,
+        "minimumPricePerHour": 23.0
+      },
+      "client": {
+        "clientId": 442,
+        "firstName": "Alex",
+        "lastName": "De Souza",
+        "telephoneNumber": 9876543,
+        "address": "alex@gmail.com",
+        "emailAddress": "Brasil",
+        "creditCard": null
+      },
+      "employee": {
+        "employeeId": 150,
+        "firstName": "Ibrahim",
+        "lastName": "Sahin",
+        "telephoneNumber": "123456789",
+        "emailAddress": "ibrahim@gmail.com",
+        "userName": "ibrahim",
+        "password": "12345",
+        "startingDate": null
+      },
+      "rentingDate": 1622887200000,
+      "rentingDuration": 1,
+      "bookingDate": 1622443420726,
+      "totalPrice": 23.0,
+      "tourStatus": "WAITING"
+    },
+    {
+      "orderId": 4,
+      "boat": {
+        "boatId": 101,
+        "type": "KAJAK",
+        "seats": 2,
+        "chargingTime": 0,
+        "minimumPricePerHour": 23.0
+      },
+      "client": {
+        "clientId": 323,
+        "firstName": "Dirk",
+        "lastName": "Kuyt",
+        "telephoneNumber": 9876543,
+        "address": "kuyt@gmail.com",
+        "emailAddress": "Amsterdam'",
+        "creditCard": null
+      },
+      "employee": {
+        "employeeId": 150,
+        "firstName": "Ibrahim",
+        "lastName": "Sahin",
+        "telephoneNumber": "123456789",
+        "emailAddress": "ibrahim@gmail.com",
+        "userName": "ibrahim",
+        "password": "12345",
+        "startingDate": null
+      },
+      "rentingDate": 1622889000000,
+      "rentingDuration": 1,
+      "bookingDate": 1622443511178,
+      "totalPrice": 23.0,
+      "tourStatus": "WAITING"
+    },
+    {
+      "orderId": 154,
+      "boat": {
+        "boatId": 102,
+        "type": "KAJAK",
+        "seats": 2,
+        "chargingTime": 0,
+        "minimumPricePerHour": 23.0
+      },
+      "client": {
+        "clientId": 899,
+        "firstName": "Leonel",
+        "lastName": "Messi",
+        "telephoneNumber": 9876543,
+        "address": "Spain",
+        "emailAddress": "messi@gmail.com",
+        "creditCard": null
+      },
+      "employee": {
+        "employeeId": 150,
+        "firstName": "Ibrahim",
+        "lastName": "Sahin",
+        "telephoneNumber": "123456789",
+        "emailAddress": "ibrahim@gmail.com",
+        "userName": "ibrahim",
+        "password": "12345",
+        "startingDate": null
+      },
+      "rentingDate": 1622889900000,
+      "rentingDuration": 1,
+      "bookingDate": 1622443769784,
+      "totalPrice": 23.0,
+      "tourStatus": "WAITING"
+    },
+    {
+      "orderId": 73,
+      "boat": {
+        "boatId": 300,
+        "type": "SUPBOARD",
+        "seats": 1,
+        "chargingTime": 0,
+        "minimumPricePerHour": 17.5
+      },
+      "client": {
+        "clientId": 244,
+        "firstName": "Susan",
+        "lastName": "Suzi",
+        "telephoneNumber": 21345,
+        "address": "Utrecht",
+        "emailAddress": "suzi@gmail.com",
+        "creditCard": null
+      },
+      "employee": {
+        "employeeId": 645,
+        "firstName": "Aysegul",
+        "lastName": "Aydar",
+        "telephoneNumber": "09876543",
+        "emailAddress": "Amsterdam",
+        "userName": "aysegul",
+        "password": "12345",
+        "startingDate": 1622493486773
+      },
+      "rentingDate": 1623225600000,
+      "rentingDuration": 1,
+      "bookingDate": 1622496701819,
+      "totalPrice": 17.5,
+      "tourStatus": "WAITING"
+    },
+    {
+      "orderId": 147,
+      "boat": {
+        "boatId": 110,
+        "type": "KAJAK",
+        "seats": 2,
+        "chargingTime": 0,
+        "minimumPricePerHour": 23.0
+      },
+      "client": {
+        "clientId": 494,
+        "firstName": "Cristhiano",
+        "lastName": "Ronaldo",
+        "telephoneNumber": 98765432,
+        "address": "Italy",
+        "emailAddress": "ronaldo@gmail.com",
+        "creditCard": null
+      },
+      "employee": {
+        "employeeId": 385,
+        "firstName": "Ehsan",
+        "lastName": "Muradi",
+        "telephoneNumber": "098765432",
+        "emailAddress": "ehsan@gmail.com",
+        "userName": "ehsan",
+        "password": "12345",
+        "startingDate": 1622493509108
+      },
+      "rentingDate": 1623682800000,
+      "rentingDuration": 1,
+      "bookingDate": 1622494897270,
+      "totalPrice": 23.0,
+      "tourStatus": "WAITING"
+    }
+  ]
+}

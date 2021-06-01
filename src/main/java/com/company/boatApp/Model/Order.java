@@ -19,7 +19,7 @@ public class Order {
     private int rentingDuration;
     private Date bookingDate;
     private double totalPrice;
-
+    private TourStatus tourStatus;
     public Order() {
     }
 
@@ -32,8 +32,8 @@ public class Order {
         this.rentingDate = rentingDate;
         this.rentingDuration = rentingDuration;
         this.bookingDate = new Date(System.currentTimeMillis());
+        this.tourStatus = TourStatus.WAITING;
         calculateTotalPrice(boat.getMinimumPricePerHour() * rentingDuration);
-        //count++;
     }
 
     public int getOrderId() {
@@ -91,6 +91,14 @@ public class Order {
 
     private void calculateTotalPrice(double hourlyBoatPrice) {
         this.totalPrice = hourlyBoatPrice * rentingDuration;
+    }
+
+    public TourStatus getTourStatus() {
+        return tourStatus;
+    }
+
+    public void setTourStatus(TourStatus tourStatus) {
+        this.tourStatus = tourStatus;
     }
 
     @Override

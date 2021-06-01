@@ -34,10 +34,12 @@ public class OrderController {
             String resDate = OrderView.takePreferencesFromUserAboutTourDate();
             updateOrder(order, resDate);
         } else if (userSelection == 2) {
+            changeReservationStatus(order);
+        } else if (userSelection == 3) {
             Map<String, String> userInfo = ClientView.takeClientInformationFromUser();
             Client client = ClientController.updateClient(order.getClient(), userInfo);
             System.out.println(order.getClient());
-        } else if (userSelection == 3) {
+        } else if (userSelection == 4) {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String resDate = format.format(order.getRentingDate());
             List<Boat> availableBoatsAtASpecificDate = getAvailableBoatsAtASpecificDate(resDate, model);
@@ -76,12 +78,14 @@ public class OrderController {
 
     public static void getReservations(Model model) {
         OrderView.showReservationsLabel();
+        model.orderList.sort(Comparator.comparing(Order::getRentingDate));
         model.orderList.stream().forEach(order ->
                 OrderView.showReservations(order.getOrderId(),
                         order.getBoat().getBoatId(),
                         order.getBoat().getType(),
                         order.getRentingDate(),
                         order.getClient().getFirstName(),
+                        order.getTourStatus(),
                         order.getEmployee().getFirstName()));
     }
 
@@ -93,6 +97,7 @@ public class OrderController {
     /**
      * Deprecated method
      * This method is deprecated. Please use the new version of it which is getAvailableBoat.
+     *
      * @param date
      * @param model
      * @return
@@ -181,6 +186,19 @@ public class OrderController {
             List<Order> orderList = getReport(model, "yearly", reportDate);
             OrderView.showReport(orderList);
         }
+    }
+
+    public static void changeReservationStatus(Order order) {
+        int userSelection = OrderView.takeStatusTypePreferenceFromUser();
+        TourStatus tourStatus = null;
+        if (userSelection == 1) {
+            tourStatus = TourStatus.WAITING;
+        } else if (userSelection == 2) {
+            tourStatus = TourStatus.COMPLETED;
+        } else if (userSelection == 3) {
+            tourStatus = TourStatus.CANCELED;
+        }
+        order.setTourStatus(tourStatus);
     }
 
     private static List<Order> getReport(Model model, String reportLong, String startDate) throws ParseException {

@@ -3,6 +3,7 @@ package com.company.boatApp.View;
 import com.company.boatApp.Model.Boat;
 import com.company.boatApp.Model.BoatType;
 import com.company.boatApp.Model.Order;
+import com.company.boatApp.Model.TourStatus;
 
 import java.util.*;
 
@@ -27,12 +28,13 @@ public class OrderView {
         Scanner scanner = new Scanner(System.in);
         System.out.format("Choose an option from following list for number of %s:\n" +
                 "1- Change date of the reservation\n" +
-                "2- Change client information of the reservation\n" +
-                "3- Change the boat\n" +
-                "4- Back to Main Menu", orderId);
+                "2- Change status of the reservation\n" +
+                "3- Change client information of the reservation\n" +
+                "4- Change the boat\n" +
+                "5- Back to Main Menu", orderId);
         int userSelection = Integer.parseInt(scanner.nextLine());
         while (true) {
-            if (userSelection >= 1 || userSelection <= 4)
+            if (userSelection >= 1 || userSelection <= 5)
                 return userSelection;
         }
     }
@@ -70,18 +72,20 @@ public class OrderView {
                 "BoatId\t" +
                 "BoatType\t\t\t" +
                 "Tour Date\t\t\t\t\t" +
-                "Client\t\t" +
+                "Client\t\t\t" +
+                "Tour Status\t\t" +
                 "Employee\t");
     }
 
-    public static void showReservations(int orderId, int boatId, BoatType boatType, Date tourDate, String clientName
-            , String employee) {
+    public static void showReservations(int orderId, int boatId, BoatType boatType, Date tourDate, String clientName,
+                                        TourStatus tourStatus, String employee) {
         System.out.format("%3.3s\t\t" +
                 "%3.3s\t\t" +
                 "%-10.10s\t" +
                 "%-30.30s\t\t" +
-                "%-10.10s\t" +
-                "%-10.10s\n",orderId,boatId,boatType,tourDate,clientName,employee);
+                "%-10.10s\t\t" +
+                "%-9.9s\t\t" +
+                "%-10.10s\n", orderId, boatId, boatType, tourDate, clientName, tourStatus, employee);
     }
 
     public static List<String> takePreferencesFromUserAboutTour() {
@@ -145,14 +149,28 @@ public class OrderView {
                 "Duration\t\t" +
                 "Price (Euro)");
         orderList.stream().forEach(order -> System.out.format("%3.3s\t\t\t" +
-                "%-10.10s\t\t" +
-                "%-2.2shour\t\t\t" +
-                "%-5.5s\n",order.getOrderId(),
+                        "%-10.10s\t\t" +
+                        "%-2.2shour\t\t\t" +
+                        "%-5.5s\n", order.getOrderId(),
                 order.getBoat().getType(),
                 order.getRentingDuration(),
                 order.getTotalPrice()));
         System.out.println("--------------------------------------------------------------");
         System.out.format("Total Price: %.2f Euro\n", totalPrice);
         System.out.println("---------------------------------------------------------------");
+    }
+
+    public static int takeStatusTypePreferenceFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose an option from following list: \n" +
+                "1- Reserved\n" +
+                "2- Done\n" +
+                "3- Canceled\n" +
+                "4- Cancel and back to Main Menu");
+        int userSelection = Integer.parseInt(scanner.nextLine());
+        while (true) {
+            if (userSelection >= 1 || userSelection <= 4)
+                return userSelection;
+        }
     }
 }
