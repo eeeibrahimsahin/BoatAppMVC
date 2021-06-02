@@ -12,11 +12,9 @@ import java.util.stream.Collectors;
 public class BoatController {
     public static void execute(int userSelectionFromBoatMenu, Model model) {
         if (userSelectionFromBoatMenu == 1) {
-            getBoats(model);
-            List<Boat> notAvailableBoatsAtTheMoment = getNotAvailableBoatsAtTheMoment(model);
-            BoatView.showNotAvailableBoats(notAvailableBoatsAtTheMoment);
+            BoatView.showNotAvailableBoats(getBoats(model));
         } else if (userSelectionFromBoatMenu == 2) {
-            BoatView.showNotAvailableBoats(getAvailableBoatsAtTheMoment(model));
+            BoatView.showNotAvailableBoats(getNotAvailableBoatsAtTheMoment(model));
             createBoat(model);
         } else if (userSelectionFromBoatMenu == 3) {
             updateBoat(model);
@@ -25,7 +23,20 @@ public class BoatController {
         }
     }
 
-    private static void getBoats(Model model) {
+    private static List<Boat> getBoats(Model model) {
+        List<Boat> notAvailableBoatsAtTheMoment = getNotAvailableBoatsAtTheMoment(model);
+        getAvailableBoatsAtTheMoment(model);
+        List<Boat> tempList = model.boatList;
+        for (Boat boat : notAvailableBoatsAtTheMoment) {
+            tempList = model.boatList.stream().map(boat1 -> {
+                if (boat1.getBoatId() == boat.getBoatId()) {
+                    return boat;
+                } else {
+                    return boat1;
+                }
+            }).collect(Collectors.toList());
+        }
+        return tempList;
     }
 
     private static void deleteBoat(Model model) {
@@ -48,9 +59,8 @@ public class BoatController {
 
             );
             if (order.getBoat().getType() == BoatType.ELECTRICALBOAT) {
-                tourEndDate = Date.from(tourEndDate.toInstant().plusSeconds(order.getBoat().getChargingTime() * 60));
+                tourEndDate = Date.from(tourEndDate.toInstant().plusSeconds((order.getBoat().getChargingTime() - 15) * 60));
             }
-
             return order.getRentingDate().before(now) && now.before(tourEndDate);
         }).map(order -> {
             order.getBoat().setStatus(BoatStatus.UNAVAILABLE);
@@ -58,7 +68,6 @@ public class BoatController {
                 double remainCharge =
                         100 - (100 * ((now.getTime() - order.getRentingDate().getTime()) / 60_000) / order.getBoat().getChargeLife());
                 order.getBoat().setRemainingCharge(remainCharge);
-
             }
             return order.getBoat();
         }).collect(Collectors.toList());

@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 
 public class OrderController {
     public static void execute(int userSelectionFromOrderMenu, Employee employee, Model model) throws ParseException {
+        statusController(model);
         if (userSelectionFromOrderMenu == 1) {
             getReservations(model);
         } else if (userSelectionFromOrderMenu == 2) {
@@ -195,7 +196,7 @@ public class OrderController {
         } else if (userSelection == 5) {
             Map<BoatType, Long> boatMap = model.boatList.stream()
                     .collect(Collectors.groupingBy(e -> e.getType(), Collectors.counting()));
-            System.out.println("numberOfKajak = " + boatMap);
+            OrderView.showBoatReport(boatMap);
         }
     }
 
@@ -251,6 +252,26 @@ public class OrderController {
         orderMap.put("Estimated_Order_List", estimatedOrderList);
         orderMap.put("Canceled_Order_List", canceledOrderList);
         return orderMap;
+    }
+
+    private static void statusController(Model model) {
+        Date now = new Date(System.currentTimeMillis());
+        model.orderList
+                .stream().
+                filter(order -> {
+                    Date tempDate = Date.from(
+                            order.getRentingDate()
+                                    .toInstant()
+                                    .plusSeconds(order.getRentingDuration() * 60 * 60)
+                    );
+                    return now.after(tempDate) && order.getTourStatus() != TourStatus.CANCELED;
+                })
+                .map(order -> {
+                            order.setTourStatus(TourStatus.COMPLETED);
+                            return order;
+                        }
+                )
+                .collect(Collectors.toList());
     }
 
     private static Date setDate(String reservationDate) throws ParseException {

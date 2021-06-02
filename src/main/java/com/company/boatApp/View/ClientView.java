@@ -32,7 +32,8 @@ public class ClientView {
 
     public static int clientMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose an option from following list for number of:\n" +
+        System.out.println("-----------Client Menu-----------\n" +
+                "Choose an option from following list for number of:\n" +
                 "1- Customer List\n" +
                 "2- Change customer information\n" +
                 "3- Delete customer\n" +

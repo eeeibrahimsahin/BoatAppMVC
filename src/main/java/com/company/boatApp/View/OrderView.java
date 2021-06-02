@@ -27,7 +27,8 @@ public class OrderView {
 
     public static int orderUpdateMenu(int orderId) {
         Scanner scanner = new Scanner(System.in);
-        System.out.format("Choose an option from following list for number of %s:\n" +
+        System.out.format("-----------Res. Update Menu-----------\n" +
+                "Choose an option from following list for number of %s:\n" +
                 "1- Change date of the reservation\n" +
                 "2- Change status of the reservation\n" +
                 "3- Change client information of the reservation\n" +
@@ -42,7 +43,8 @@ public class OrderView {
 
     public static int reportMenu() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose an option from following list: \n" +
+        System.out.println("-----------Report Menu-----------\n" +
+                "Choose an option from following list: \n" +
                 "1- Daily Report\n" +
                 "2- Weekly Report\n" +
                 "3- Monthly Report\n" +
@@ -144,7 +146,7 @@ public class OrderView {
         return orderId;
     }
 
-    public static void showReport(Map<String,List<Order>> orderMap) {
+    public static void showReport(Map<String, List<Order>> orderMap) {
         double totalPrice = orderMap.get("All_Order_List")
                 .stream().map(order -> order.getTotalPrice()).reduce(0.0, Double::sum);
         double earnedTotalMoney = orderMap.get("Completed_Order_List")
@@ -171,7 +173,18 @@ public class OrderView {
         System.out.format("Total Lost Price: %.2f Euro\n", lostTotalMoney);
     }
 
-    public static void showBoatsReport(List<Boat> boatList){
+    public static void showBoatReport(Map<BoatType, Long> boatTypeLongMap) {
+        System.out.println("Boat Type\t\t" +
+                "Amount of the Boat\t\t");
+        for (Map.Entry<BoatType, Long> entry : boatTypeLongMap.entrySet()) {
+            System.out.format("%-15.15s\t\t" +
+                            "%4.4s\n"
+                    , entry.getKey(), entry.getValue());
+        }
+
+    }
+
+    public static void showBoatsReport(List<Boat> boatList) {
 
     }
 

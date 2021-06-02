@@ -137,7 +137,7 @@
       "chargingTime": 0,
       "minimumPricePerHour": 27.5,
       "remainingCharge": 0.0,
-      "status": null,
+      "status": "AVAILABLE",
       "chargeLife": 0.0
     },
     {
@@ -416,9 +416,9 @@
       "seats": 4,
       "chargingTime": 30,
       "minimumPricePerHour": 35.0,
-      "remainingCharge": 0.0,
-      "status": null,
-      "chargeLife": 0.0
+      "remainingCharge": 100.0,
+      "status": "AVAILABLE",
+      "chargeLife": 120.0
     },
     {
       "boatId": 401,
@@ -565,287 +565,46 @@
       "address": "Turkey",
       "emailAddress": "nil@gmail.com",
       "creditCard": null
+    },
+    {
+      "clientId": 433,
+      "firstName": "Sedat",
+      "lastName": "Peker",
+      "telephoneNumber": 213456,
+      "address": "Dubai",
+      "emailAddress": "reis@gmail.com",
+      "creditCard": null
+    },
+    {
+      "clientId": 806,
+      "firstName": "Alex",
+      "lastName": "De Souz",
+      "telephoneNumber": 1234546,
+      "address": "Brasil",
+      "emailAddress": "alex@gmail.com",
+      "creditCard": null
     }
   ],
   "orderList": [
     {
-      "orderId": 69,
+      "orderId": 131,
       "boat": {
         "boatId": 400,
         "type": "ELECTRICALBOAT",
         "seats": 4,
         "chargingTime": 30,
         "minimumPricePerHour": 35.0,
-        "remainingCharge": 0.0,
-        "status": null,
-        "chargeLife": 0.0
-      },
-      "client": {
-        "clientId": 682,
-        "firstName": "Salah",
-        "lastName": "Mohammed",
-        "telephoneNumber": 987654,
-        "address": "London",
-        "emailAddress": "salah@gmail.com",
-        "creditCard": null
-      },
-      "employee": {
-        "employeeId": 595,
-        "firstName": "Ibrahim",
-        "lastName": "Sahin",
-        "telephoneNumber": "09876543",
-        "emailAddress": "ibrahim@gmail.com",
-        "userName": "ibrahim",
-        "password": "12345",
-        "startingDate": 1622493007980
-      },
-      "rentingDate": 1621936800000,
-      "rentingDuration": 2,
-      "bookingDate": 1622549838404,
-      "totalPrice": 140.0,
-      "tourStatus": "COMPLETED"
-    },
-    {
-      "orderId": 81,
-      "boat": {
-        "boatId": 100,
-        "type": "KAJAK",
-        "seats": 2,
-        "chargingTime": 0,
-        "minimumPricePerHour": 23.0,
-        "remainingCharge": 0.0,
-        "status": null,
-        "chargeLife": 0.0
-      },
-      "client": {
-        "clientId": 442,
-        "firstName": "Alex",
-        "lastName": "De Souza",
-        "telephoneNumber": 9876543,
-        "address": "alex@gmail.com",
-        "emailAddress": "Brasil",
-        "creditCard": null
-      },
-      "employee": {
-        "employeeId": 150,
-        "firstName": "Ibrahim",
-        "lastName": "Sahin",
-        "telephoneNumber": "123456789",
-        "emailAddress": "ibrahim@gmail.com",
-        "userName": "ibrahim",
-        "password": "12345",
-        "startingDate": null
-      },
-      "rentingDate": 1622887200000,
-      "rentingDuration": 1,
-      "bookingDate": 1622443420726,
-      "totalPrice": 23.0,
-      "tourStatus": "WAITING"
-    },
-    {
-      "orderId": 4,
-      "boat": {
-        "boatId": 101,
-        "type": "KAJAK",
-        "seats": 2,
-        "chargingTime": 0,
-        "minimumPricePerHour": 23.0,
-        "remainingCharge": 0.0,
-        "status": null,
-        "chargeLife": 0.0
-      },
-      "client": {
-        "clientId": 323,
-        "firstName": "Dirk",
-        "lastName": "Kuyt",
-        "telephoneNumber": 9876543,
-        "address": "kuyt@gmail.com",
-        "emailAddress": "Amsterdam'",
-        "creditCard": null
-      },
-      "employee": {
-        "employeeId": 150,
-        "firstName": "Ibrahim",
-        "lastName": "Sahin",
-        "telephoneNumber": "123456789",
-        "emailAddress": "ibrahim@gmail.com",
-        "userName": "ibrahim",
-        "password": "12345",
-        "startingDate": null
-      },
-      "rentingDate": 1622889000000,
-      "rentingDuration": 1,
-      "bookingDate": 1622443511178,
-      "totalPrice": 23.0,
-      "tourStatus": "WAITING"
-    },
-    {
-      "orderId": 154,
-      "boat": {
-        "boatId": 102,
-        "type": "KAJAK",
-        "seats": 2,
-        "chargingTime": 0,
-        "minimumPricePerHour": 23.0,
-        "remainingCharge": 0.0,
-        "status": null,
-        "chargeLife": 0.0
-      },
-      "client": {
-        "clientId": 899,
-        "firstName": "Leonel",
-        "lastName": "Messi",
-        "telephoneNumber": 9876543,
-        "address": "Spain",
-        "emailAddress": "messi@gmail.com",
-        "creditCard": null
-      },
-      "employee": {
-        "employeeId": 150,
-        "firstName": "Ibrahim",
-        "lastName": "Sahin",
-        "telephoneNumber": "123456789",
-        "emailAddress": "ibrahim@gmail.com",
-        "userName": "ibrahim",
-        "password": "12345",
-        "startingDate": null
-      },
-      "rentingDate": 1622889900000,
-      "rentingDuration": 1,
-      "bookingDate": 1622443769784,
-      "totalPrice": 23.0,
-      "tourStatus": "WAITING"
-    },
-    {
-      "orderId": 73,
-      "boat": {
-        "boatId": 300,
-        "type": "SUPBOARD",
-        "seats": 1,
-        "chargingTime": 0,
-        "minimumPricePerHour": 17.5,
-        "remainingCharge": 0.0,
-        "status": null,
-        "chargeLife": 0.0
-      },
-      "client": {
-        "clientId": 244,
-        "firstName": "Susan",
-        "lastName": "Suzi",
-        "telephoneNumber": 21345,
-        "address": "Utrecht",
-        "emailAddress": "suzi@gmail.com",
-        "creditCard": null
-      },
-      "employee": {
-        "employeeId": 645,
-        "firstName": "Aysegul",
-        "lastName": "Aydar",
-        "telephoneNumber": "09876543",
-        "emailAddress": "Amsterdam",
-        "userName": "aysegul",
-        "password": "12345",
-        "startingDate": 1622493486773
-      },
-      "rentingDate": 1623225600000,
-      "rentingDuration": 1,
-      "bookingDate": 1622496701819,
-      "totalPrice": 17.5,
-      "tourStatus": "WAITING"
-    },
-    {
-      "orderId": 147,
-      "boat": {
-        "boatId": 110,
-        "type": "KAJAK",
-        "seats": 2,
-        "chargingTime": 0,
-        "minimumPricePerHour": 23.0,
-        "remainingCharge": 0.0,
-        "status": null,
-        "chargeLife": 0.0
-      },
-      "client": {
-        "clientId": 494,
-        "firstName": "Cristhiano",
-        "lastName": "Ronaldo",
-        "telephoneNumber": 98765432,
-        "address": "Italy",
-        "emailAddress": "ronaldo@gmail.com",
-        "creditCard": null
-      },
-      "employee": {
-        "employeeId": 385,
-        "firstName": "Ehsan",
-        "lastName": "Muradi",
-        "telephoneNumber": "098765432",
-        "emailAddress": "ehsan@gmail.com",
-        "userName": "ehsan",
-        "password": "12345",
-        "startingDate": 1622493509108
-      },
-      "rentingDate": 1623682800000,
-      "rentingDuration": 1,
-      "bookingDate": 1622494897270,
-      "totalPrice": 23.0,
-      "tourStatus": "WAITING"
-    },
-    {
-      "orderId": 69,
-      "boat": {
-        "boatId": 202,
-        "type": "ROWINGBOAT",
-        "seats": 4,
-        "chargingTime": 0,
-        "minimumPricePerHour": 27.5,
-        "remainingCharge": 0.0,
-        "status": "UNAVAILABLE",
-        "chargeLife": 0.0
-      },
-      "client": {
-        "clientId": 210,
-        "firstName": "Johny",
-        "lastName": "Deep",
-        "telephoneNumber": 9876543,
-        "address": "New York",
-        "emailAddress": "john@gmail.com",
-        "creditCard": null
-      },
-      "employee": {
-        "employeeId": 595,
-        "firstName": "Ibrahim",
-        "lastName": "Sahin",
-        "telephoneNumber": "09876543",
-        "emailAddress": "ibrahim@gmail.com",
-        "userName": "ibrahim",
-        "password": "12345",
-        "startingDate": 1622493007980
-      },
-      "rentingDate": 1622559600000,
-      "rentingDuration": 3,
-      "bookingDate": 1622562930108,
-      "totalPrice": 247.5,
-      "tourStatus": "WAITING"
-    },
-    {
-      "orderId": 164,
-      "boat": {
-        "boatId": 400,
-        "type": "ELECTRICALBOAT",
-        "seats": 4,
-        "chargingTime": 30,
-        "minimumPricePerHour": 35.0,
-        "remainingCharge": 19.16666666666667,
+        "remainingCharge": 54.166666666666664,
         "status": "UNAVAILABLE",
         "chargeLife": 120.0
       },
       "client": {
-        "clientId": 315,
-        "firstName": "Nilufer",
-        "lastName": "Ask",
-        "telephoneNumber": 123456,
-        "address": "Turkey",
-        "emailAddress": "nil@gmail.com",
+        "clientId": 806,
+        "firstName": "Alex",
+        "lastName": "De Souz",
+        "telephoneNumber": 1234546,
+        "address": "Brasil",
+        "emailAddress": "alex@gmail.com",
         "creditCard": null
       },
       "employee": {
@@ -858,10 +617,10 @@
         "password": "12345",
         "startingDate": 1622493007980
       },
-      "rentingDate": 1622563200000,
-      "rentingDuration": 2,
-      "bookingDate": 1622563758675,
-      "totalPrice": 140.0,
+      "rentingDate": 1622572200000,
+      "rentingDuration": 1,
+      "bookingDate": 1622573928408,
+      "totalPrice": 35.0,
       "tourStatus": "WAITING"
     }
   ]

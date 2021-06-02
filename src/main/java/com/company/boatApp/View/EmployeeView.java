@@ -85,7 +85,8 @@ public class EmployeeView {
 
     public static int updateMenu(String lastname) {
         Scanner scanner = new Scanner(System.in);
-        System.out.format("Choose an option from following list for Mr./Ms. %s:\n" +
+        System.out.format("-----------Emp. Update Menu-----------\n" +
+                "Choose an option from following list for Mr./Ms. %s:\n" +
                 "1- Change name \n" +
                 "2- Change username \n" +
                 "3- Change password \n" +
