@@ -163,13 +163,16 @@ public class OrderView {
         System.out.println("OrderID\t\t" +
                 "Boat Type\t\t" +
                 "Duration\t\t" +
+                "Status\t\t\t" +
                 "Price (Euro)");
         orderMap.get("All_Order_List").stream().forEach(order -> System.out.format("%3.3s\t\t\t" +
                         "%-10.10s\t\t" +
                         "%-2.2shour\t\t\t" +
+                        "%-9.9s\t\t" +
                         "%-5.5s\n", order.getOrderId(),
                 order.getBoat().getType(),
                 order.getRentingDuration(),
+                order.getTourStatus(),
                 order.getTotalPrice()));
         System.out.println("--------------------------------------------------------------");
         System.out.format("Total Price: %.2f Euro\n", totalPrice);

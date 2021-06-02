@@ -173,7 +173,11 @@ public class OrderController {
     private static void deleteOrder(Model model) {
         getReservations(model);
         int orderId = OrderView.takePreferencesFromUserToUpdateAReservation();
-        model.orderList.removeIf(order -> order.getOrderId() == orderId);
+        //model.orderList.removeIf(order -> order.getOrderId() == orderId);
+        model.orderList.stream().filter(order -> order.getOrderId()==orderId).map(order -> {
+            order.setTourStatus(TourStatus.CANCELED);
+            return order;
+        }).forEach(order -> System.out.println("Order is canceled!"));
     }
 
     public static void createAReport(int userSelection, Model model) throws ParseException {
