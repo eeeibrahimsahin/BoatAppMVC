@@ -64,7 +64,6 @@ public class Order {
         this.employee = employee;
     }
 
-
     public Date getRentingDate() {
         return rentingDate;
     }

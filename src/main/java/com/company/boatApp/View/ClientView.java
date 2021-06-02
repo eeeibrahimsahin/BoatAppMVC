@@ -19,7 +19,6 @@ public class ClientView {
         String clientAddress = scanner.nextLine();
         System.out.print("Enter Client email address: ");
         String clientEmailAddress = scanner.nextLine();
-
         Map<String, String> info = new HashMap<>();
         info.put("Firstname", clientFirstname);
         info.put("Lastname", clientLastname);
@@ -28,7 +27,6 @@ public class ClientView {
         info.put("EmailAddress", clientEmailAddress);
         return info;
     }
-
 
     public static int clientMenu() {
         Scanner scanner = new Scanner(System.in);
