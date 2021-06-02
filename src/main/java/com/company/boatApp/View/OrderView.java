@@ -113,9 +113,14 @@ public class OrderView {
     }
 
     public static void showAvailableBoats(List<Boat> availableBoatList) {
-        System.out.println("Available boat info:\n id - Type - Capacity");
-        availableBoatList.stream().forEach(boat2 -> System.out.println(boat2.getBoatId() + "\t " +
-                boat2.getType() + "\t " + boat2.getSeats()));
+        System.out.println("--------------Available boat info--------------\n" +
+                "BoatId\t\t" +
+                "Type\t\t" +
+                "Capacity");
+        availableBoatList.stream().forEach(boat2 -> System.out.format("%4.4s\t\t" +
+                        "%-15.15s\t" +
+                        "%2.2s\n", boat2.getBoatId(),
+                boat2.getType(), boat2.getSeats()));
     }
 
     public static boolean takeReservationConfirmationFromUser(String resDate, BoatType boatType, String clientFirstname,
