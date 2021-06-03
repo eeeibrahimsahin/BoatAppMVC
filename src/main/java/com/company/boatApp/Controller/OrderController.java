@@ -77,9 +77,9 @@ public class OrderController {
 
         boolean isConfirm = OrderView.takeReservationConfirmationFromUser(
                 list.get(0), boat.getType(), client.getFirstName(), client.getLastName(),
-                boat.getMinimumPricePerHour() * desiredTourDuration);
+                boat.getMinimumPricePerHour() * desiredTourDuration, list.get(2));
         if (isConfirm) {
-            reservationConfirmation(model, boat, client, employee, list.get(0), Integer.parseInt(list.get(1)));
+            reservationConfirmation(model, boat, client, employee, list.get(0), Integer.parseInt(list.get(1)), list.get(2));
         }
 
     }
@@ -94,7 +94,8 @@ public class OrderController {
                         order.getRentingDate(),
                         order.getClient().getFirstName(),
                         order.getTourStatus(),
-                        order.getEmployee().getFirstName()));
+                        order.getEmployee().getFirstName(),
+                        order.getTourType()));
     }
 
     public static Order getAReservation(Model model, int orderId) {
@@ -156,11 +157,18 @@ public class OrderController {
     }
 
     private static void reservationConfirmation(Model model, Boat boat, Client client, Employee employee,
-                                                String tourDate, int tourDuration) throws ParseException {
+                                                String tourDate, int tourDuration, String tourType) throws ParseException {
 
-        model.orderList.add(
-                new Order(boat, client, employee, setDate(tourDate), tourDuration)
-        );
+        if (tourType.equalsIgnoreCase("RIVER")) {
+            model.orderList.add(
+                    new Order(boat, client, employee, setDate(tourDate), tourDuration, TourType.RIVER)
+            );
+        } else {
+            model.orderList.add(
+                    new Order(boat, client, employee, setDate(tourDate), tourDuration, TourType.LAKE)
+            );
+        }
+
         System.out.println("Reservation is done!");
 
 
@@ -174,7 +182,7 @@ public class OrderController {
         getReservations(model);
         int orderId = OrderView.takePreferencesFromUserToUpdateAReservation();
         //model.orderList.removeIf(order -> order.getOrderId() == orderId);
-        model.orderList.stream().filter(order -> order.getOrderId()==orderId).map(order -> {
+        model.orderList.stream().filter(order -> order.getOrderId() == orderId).map(order -> {
             order.setTourStatus(TourStatus.CANCELED);
             return order;
         }).forEach(order -> System.out.println("Order is canceled!"));

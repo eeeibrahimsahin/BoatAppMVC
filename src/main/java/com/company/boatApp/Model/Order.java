@@ -20,6 +20,8 @@ public class Order {
     private Date bookingDate;
     private double totalPrice;
     private TourStatus tourStatus;
+    private TourType tourType;
+
     public Order() {
     }
 
@@ -31,6 +33,20 @@ public class Order {
         this.employee = employee;
         this.rentingDate = rentingDate;
         this.rentingDuration = rentingDuration;
+        this.bookingDate = new Date(System.currentTimeMillis());
+        this.tourStatus = TourStatus.WAITING;
+        this.tourType = TourType.LAKE;
+        calculateTotalPrice(boat.getMinimumPricePerHour() * rentingDuration);
+    }
+
+    public Order(Boat boat, Client client, Employee employee, Date rentingDate, int rentingDuration, TourType tourType) {
+        this.orderId = count.nextInt(200);
+        this.boat = boat;
+        this.client = client;
+        this.employee = employee;
+        this.rentingDate = rentingDate;
+        this.rentingDuration = rentingDuration;
+        this.tourType = tourType;
         this.bookingDate = new Date(System.currentTimeMillis());
         this.tourStatus = TourStatus.WAITING;
         calculateTotalPrice(boat.getMinimumPricePerHour() * rentingDuration);
@@ -100,8 +116,13 @@ public class Order {
         this.tourStatus = tourStatus;
     }
 
+    public TourType getTourType() {
+        return tourType;
+    }
 
-
+    public void setTourType(TourType tourType) {
+        this.tourType = tourType;
+    }
 
     @Override
     public String toString() {

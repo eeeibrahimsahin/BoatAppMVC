@@ -27,7 +27,7 @@ public class MainMenuView {
                 "to cancel press C");
         while (true) {
             String userSelection = new Scanner(System.in).nextLine();
-            if (userSelection.equalsIgnoreCase("S")) return true;
+            if (userSelection.equalsIgnoreCase("Y")) return true;
             else if (userSelection.equalsIgnoreCase("C")) return false;
             else System.out.println("Invalid selection");
         }

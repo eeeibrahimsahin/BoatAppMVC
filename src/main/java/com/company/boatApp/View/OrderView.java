@@ -1,9 +1,6 @@
 package com.company.boatApp.View;
 
-import com.company.boatApp.Model.Boat;
-import com.company.boatApp.Model.BoatType;
-import com.company.boatApp.Model.Order;
-import com.company.boatApp.Model.TourStatus;
+import com.company.boatApp.Model.*;
 
 import java.util.*;
 
@@ -78,18 +75,20 @@ public class OrderView {
                 "Tour Date\t\t\t\t\t" +
                 "Client\t\t\t" +
                 "Tour Status\t\t" +
+                "Tour Type\t" +
                 "Employee\t");
     }
 
     public static void showReservations(int orderId, int boatId, BoatType boatType, Date tourDate, String clientName,
-                                        TourStatus tourStatus, String employee) {
+                                        TourStatus tourStatus, String employee,TourType tourType) {
         System.out.format("%3.3s\t\t" +
                 "%3.3s\t\t" +
                 "%-10.10s\t" +
                 "%-30.30s\t\t" +
                 "%-10.10s\t\t" +
                 "%-9.9s\t\t" +
-                "%-10.10s\n", orderId, boatId, boatType, tourDate, clientName, tourStatus, employee);
+                "%-5.5s\t\t" +
+                "%-10.10s\n", orderId, boatId, boatType, tourDate, clientName, tourStatus,tourType, employee);
     }
 
     public static List<String> takePreferencesFromUserAboutTour() {
@@ -98,10 +97,18 @@ public class OrderView {
         System.out.println("Date format should be that yyyy-MM-dd HH:mm:ss");
         System.out.print("Enter desired reservation date to see available boats: ");
         String resDate = scanner.nextLine();
-        System.out.print("Enter desired tour duration: ");
+        System.out.print("Enter desired tour duration (hour) : ");
         String rentingDuration = scanner.nextLine();
+        System.out.println("Chose tour type:\n" +
+                "1- LAKE\n" +
+                "2- RIVER");
+        String tourType = scanner.nextLine();
+        if (tourType.equalsIgnoreCase("1"))
+            tourType = "LAKE";
+        else tourType = "RIVER";
         list.add(resDate);
         list.add(rentingDuration);
+        list.add(tourType);
         return list;
     }
 
@@ -124,15 +131,16 @@ public class OrderView {
     }
 
     public static boolean takeReservationConfirmationFromUser(String resDate, BoatType boatType, String clientFirstname,
-                                                              String clientLastname, double totalPrice) {
+                                                              String clientLastname, double totalPrice, String tourType) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.format("Order Information:\n " +
                         "Reservation Date: %s\n " +
+                        "Tour Type: %s\n" +
                         "Boat Type: %s\n " +
                         "Client Name: %s\n " +
                         "Total Price: %.2f Euro\n" +
-                        "to confirm pres Y, to cancel press C: ", resDate, boatType,
+                        "to confirm pres Y, to cancel press C: ", resDate, tourType, boatType,
                 clientFirstname + " " + clientLastname, totalPrice);
         String userSelection = scanner.nextLine();
         while (true) {
