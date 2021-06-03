@@ -2,7 +2,6 @@ package com.company.boatApp.Controller;
 
 import com.company.boatApp.Model.*;
 import com.company.boatApp.View.BoatView;
-import com.company.boatApp.View.EmployeeView;
 
 import java.util.Date;
 import java.util.List;
@@ -18,8 +17,6 @@ public class BoatController {
             createBoat(model);
         } else if (userSelectionFromBoatMenu == 3) {
             updateBoat(model);
-        } else if (userSelectionFromBoatMenu == 4) {
-            deleteBoat(model);
         }
     }
 
@@ -43,9 +40,59 @@ public class BoatController {
     }
 
     private static void updateBoat(Model model) {
+        BoatView.showNotAvailableBoats(getBoats(model));
+        int boatId = BoatView.takeBoatSelectionPrefernceFromUser();
+        Optional<Boat> boat = model.boatList.stream().filter(boat1 -> boat1.getBoatId() == boatId).findFirst();
+        int userSelection = BoatView.boatUpdateMenu();
+        if (userSelection == 1) {
+            int seatsNumber = BoatView.takeSeatsNumberPreferenceFromUser();
+            boat.get().setSeats(seatsNumber);
+        } else if (userSelection == 2) {
+            double minPrice = BoatView.takeMinimumPriceFromUser();
+            boat.get().setMinimumPricePerHour(minPrice);
+        } else if (userSelection == 3) {
+            int chargingTime = BoatView.takeChargingTimeFromUser();
+            boat.get().setChargingTime(chargingTime);
+        } else if (userSelection == 4) {
+            boolean isConfirmed = BoatView.takeConfirmationFromUserToDeleteBaot(boat.get());
+            if (isConfirmed) model.boatList.removeIf(boat1 -> boat1.getBoatId() == boatId);
+        }
     }
 
     private static void createBoat(Model model) {
+        int userSelection = BoatView.addBoatMenu();
+        if (userSelection == 5) return;
+        List<String> boatInfo = BoatView.takeUserSelectionToAddBoat(userSelection);
+        int boatId = 0;
+        BoatType boatType = null;
+        if (userSelection == 1) {
+            long count = model.boatList.stream().filter(boat -> boat.getType().equals(BoatType.KAJAK)).count();
+            boatId = 100 + (int) ++count;
+            boatType = BoatType.KAJAK;
+        } else if (userSelection == 2) {
+            boatType = BoatType.SUPBOARD;
+            long count = model.boatList.stream().filter(boat -> boat.getType().equals(BoatType.SUPBOARD)).count();
+            boatId = 300 + (int) ++count;
+        } else if (userSelection == 3) {
+            boatType = BoatType.ROWINGBOAT;
+            long count = model.boatList.stream().filter(boat -> boat.getType().equals(BoatType.ROWINGBOAT)).count();
+            boatId = 200 + (int) ++count;
+        } else if (userSelection == 4) {
+            boatType = BoatType.ELECTRICALBOAT;
+            long count = model.boatList.stream().filter(boat -> boat.getType().equals(BoatType.ELECTRICALBOAT)).count();
+            boatId = 400 + (int) ++count;
+        }
+        boolean isConfirmed = BoatView.takeConfirmationFromUserToCreateBoat(boatType, boatInfo);
+        if (isConfirmed) {
+            if (boatType.equals(BoatType.ELECTRICALBOAT)) {
+                model.boatList.add(new Boat(boatId, boatType,
+                        Integer.parseInt(boatInfo.get(0)), Integer.parseInt(boatInfo.get(2)),
+                        Double.parseDouble(boatInfo.get(1))));
+            } else {
+                model.boatList.add(new Boat(boatId, boatType, Integer.parseInt(boatInfo.get(0)),
+                        Double.parseDouble(boatInfo.get(1))));
+            }
+        }
     }
 
     private static List<Boat> getNotAvailableBoatsAtTheMoment(Model model) {
@@ -59,7 +106,7 @@ public class BoatController {
 
             );
             if (order.getBoat().getType() == BoatType.ELECTRICALBOAT) {
-                tourEndDate = Date.from(tourEndDate.toInstant().plusSeconds((order.getBoat().getChargingTime() - 15) * 60));
+                tourEndDate = Date.from(tourEndDate.toInstant().plusSeconds((order.getBoat().getChargingTime()) * 60));
             }
             return order.getRentingDate().before(now) && now.before(tourEndDate);
         }).map(order -> {

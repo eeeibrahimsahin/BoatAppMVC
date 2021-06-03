@@ -37,7 +37,7 @@ public class MainController {
                 } else if (userSelection == 3) {
                     while (true) {
                         int userSelectionFromBoatMenu = BoatView.boatMenu();
-                        if (userSelectionFromBoatMenu == 5) break;
+                        if (userSelectionFromBoatMenu == 4) break;
                         BoatController.execute(userSelectionFromBoatMenu, model);
                     }
                 } else if (userSelection == 4) {
