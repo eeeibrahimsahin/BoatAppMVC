@@ -1,6 +1,7 @@
 
 # Boat Reservation Application
-
+## Why did we build this project?
+- This is a java course demo project. We built this app to show that what we learned from the course and what we can do by using them.
 ## What this application does
 
 Boat reservation application is a java console application to manage all operation's a boat renting company. You can manage below operation by using this application:
