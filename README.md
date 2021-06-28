@@ -40,4 +40,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## Credits
-We wrote this application together Ehsan Muradi and @aysegulcayir as a team.
+We wrote this application together @ehsanmor and @aysegulcayir as a team.
